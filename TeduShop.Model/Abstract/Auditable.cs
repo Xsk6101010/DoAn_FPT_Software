@@ -17,7 +17,7 @@ namespace TeduShop.Model.Models
 
    [MaxLength(256)]
    public string MetaKeyword { set; get; }
-   [MaxLength]
+   [MaxLength(256)]
    public string MetaDescription { set; get; }
 
 
