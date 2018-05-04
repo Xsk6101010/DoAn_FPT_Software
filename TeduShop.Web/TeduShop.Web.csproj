@@ -183,7 +183,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="commit_Server0\" />
-    <Folder Include="commit_Server1\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
