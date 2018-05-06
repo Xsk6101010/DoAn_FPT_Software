@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Reponsitories;
 using TeduShop.Model.Models;
-using System.Linq;
+
 namespace TeduShop.Service
 {
    public interface IPostService
