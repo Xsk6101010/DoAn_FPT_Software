@@ -8,7 +8,7 @@ using TeduShop.Data.Models;
 
 namespace TeduShop.Data.Reponsitories
 {
-    public interface IMenuGroupRepository
+    public interface IMenuGroupRepository : IRepository<MenuGroup>
     {
 
     }
