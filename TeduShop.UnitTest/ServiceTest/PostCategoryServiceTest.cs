@@ -1,10 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Reponsitories;
 using TeduShop.Model.Models;
@@ -13,28 +9,25 @@ using TeduShop.Service;
 namespace TeduShop.UnitTest.ServiceTest
 {
     [TestClass]
-  public class PostCategoryServiceTest
+    public class PostCategoryServiceTest
     {
         private Mock<IPostCategoryRepository> _mockRepository;
         private Mock<IUnitOfWork> _mocUnitOfWork;
-        private IPostCategoryService _categoryService ;
+        private IPostCategoryService _categoryService;
         private List<PostCategory> _listCategory;
 
-
-
-    [TestInitialize]
-     public void Initialize()
+        [TestInitialize]
+        public void Initialize()
         {
             _mockRepository = new Mock<IPostCategoryRepository>();
             _mocUnitOfWork = new Mock<IUnitOfWork>();
-            _categoryService = new PostCategoryService(_mockRepository.Object,_mocUnitOfWork.Object) ;
+            _categoryService = new PostCategoryService(_mockRepository.Object, _mocUnitOfWork.Object);
 
             _listCategory = new List<PostCategory>()
             {
                new PostCategory() {ID=1,Name="DM1",Status=true },
                new PostCategory() {ID=2,Name="DM2",Status=true },
                new PostCategory() {ID=3,Name="DM3",Status=true },
-
             };
         }
 
@@ -48,8 +41,9 @@ namespace TeduShop.UnitTest.ServiceTest
 
             // compare.
             Assert.IsNotNull(result);
-            Assert.AreEqual(3,result.Count);
+            Assert.AreEqual(3, result.Count);
         }
+
         [TestMethod]
         public void PostCategory_Service_Create()
         {
@@ -59,19 +53,16 @@ namespace TeduShop.UnitTest.ServiceTest
             category.Alias = "test";
             category.Status = true;
 
-
             _mockRepository.Setup(m => m.Add(category)).Returns((PostCategory p) =>
               {
                   p.ID = 1;
                   return p;
               });
 
-
             var result = _categoryService.Add(category);
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(1,result.ID);
-
+            Assert.AreEqual(1, result.ID);
         }
     }
 }

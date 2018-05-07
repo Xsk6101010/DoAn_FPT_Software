@@ -8,6 +8,17 @@ namespace TeduShop.Data.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Errors",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Message = c.String(),
+                        StackTrace = c.String(),
+                        CreatedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.Footers",
                 c => new
                     {
@@ -91,7 +102,7 @@ namespace TeduShop.Data.Migrations
                         HomeFlag = c.Boolean(),
                         HotFlag = c.Boolean(),
                         ViewCount = c.Int(),
-                        CreatedDate = c.DateTime(nullable: false),
+                        CreatedDate = c.DateTime(),
                         CreatedBy = c.String(maxLength: 256),
                         UpdatedDate = c.DateTime(),
                         UpdatedBy = c.String(),
@@ -115,7 +126,7 @@ namespace TeduShop.Data.Migrations
                         DesplayOrder = c.Int(),
                         Image = c.String(),
                         HomeFlag = c.Boolean(),
-                        CreatedDate = c.DateTime(nullable: false),
+                        CreatedDate = c.DateTime(),
                         CreatedBy = c.String(maxLength: 256),
                         UpdatedDate = c.DateTime(),
                         UpdatedBy = c.String(),
@@ -133,7 +144,7 @@ namespace TeduShop.Data.Migrations
                         Name = c.String(nullable: false, maxLength: 256),
                         Alias = c.String(nullable: false, maxLength: 256, unicode: false),
                         Content = c.String(),
-                        CreatedDate = c.DateTime(nullable: false),
+                        CreatedDate = c.DateTime(),
                         CreatedBy = c.String(maxLength: 256),
                         UpdatedDate = c.DateTime(),
                         UpdatedBy = c.String(),
@@ -155,7 +166,7 @@ namespace TeduShop.Data.Migrations
                         DisplayOrder = c.Int(),
                         Image = c.String(maxLength: 256),
                         HomeFlag = c.Boolean(),
-                        CreatedDate = c.DateTime(nullable: false),
+                        CreatedDate = c.DateTime(),
                         CreatedBy = c.String(maxLength: 256),
                         UpdatedDate = c.DateTime(),
                         UpdatedBy = c.String(),
@@ -179,7 +190,7 @@ namespace TeduShop.Data.Migrations
                         HomeFlag = c.Boolean(),
                         HotFlag = c.Boolean(),
                         ViewCount = c.Int(),
-                        CreatedDate = c.DateTime(nullable: false),
+                        CreatedDate = c.DateTime(),
                         CreatedBy = c.String(maxLength: 256),
                         UpdatedDate = c.DateTime(),
                         UpdatedBy = c.String(),
@@ -318,6 +329,7 @@ namespace TeduShop.Data.Migrations
             DropTable("dbo.Menus");
             DropTable("dbo.MenuGroups");
             DropTable("dbo.Footers");
+            DropTable("dbo.Errors");
         }
     }
 }

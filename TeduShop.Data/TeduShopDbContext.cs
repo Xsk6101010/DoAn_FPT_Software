@@ -12,7 +12,7 @@ namespace TeduShop.Data
 {
   public  class TeduShopDbContext :DbContext
     {
-       public TeduShopDbContext() : base("TeduShop")
+       public TeduShopDbContext() : base("TeduShopConnection")
         {
           this.Configuration.LazyLoadingEnabled = false;
         }
@@ -37,7 +37,7 @@ namespace TeduShop.Data
         public DbSet<Tag> Tags { set; get; }
 
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
-
+        public DbSet<Error> Errors { set; get; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
           

@@ -1,22 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Reponsitories;
 using TeduShop.Model.Models;
 
 namespace TeduShop.UnitTest.RepositoryTest
 {
-
     [TestClass]
     public class PostCategoryRepositorTest
     {
-        IDbFactory dbFactory;
-        IPostCategoryRepository objRepository;
-        IUnitOfWork unitOfWork;
+        private IDbFactory dbFactory;
+        private IPostCategoryRepository objRepository;
+        private IUnitOfWork unitOfWork;
 
         [TestInitialize]
         public void Initialize()
@@ -26,13 +21,6 @@ namespace TeduShop.UnitTest.RepositoryTest
             unitOfWork = new UnitOfWork(dbFactory);
         }
 
-        [TestMethod]
-        public void PostCategory_Repository_GetAll()
-        {
-            var list = objRepository.GetAll();
-            Assert.AreEqual(3, list.Count());
-
-        }
 
         [TestMethod]
         public void PostCategory_Repository_Create()
@@ -47,12 +35,15 @@ namespace TeduShop.UnitTest.RepositoryTest
 
             Assert.IsNotNull(result);
             Assert.AreEqual(1, result.ID);
-
-
         }
 
 
-
+        [TestMethod]
+        public void PostCategory_Repository_GetAll()
+        {
+            var list = objRepository.GetAll();
+            Assert.AreEqual(3, list.Count());
+        }
 
     }
 }
