@@ -33,7 +33,6 @@ namespace TeduShop.Service
             this._postCategoryRepository = postCategoryRepository;
             this._unitOfWork = unitOfWork;
         }
-
         public PostCategory Add(PostCategory postCategory)
         {
             return _postCategoryRepository.Add(postCategory);

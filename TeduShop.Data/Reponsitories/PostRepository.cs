@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Model.Models;
 
-
-
 namespace TeduShop.Data.Reponsitories
 {
     public interface IPostRepository : IRepository<Post>
